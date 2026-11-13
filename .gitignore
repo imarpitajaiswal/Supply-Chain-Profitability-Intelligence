@@ -1,0 +1,48 @@
+
+# Python virtual environments
+.venv/
+venv/
+env/
+
+# Python cache and compiled files
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# macOS files
+.DS_Store
+
+# IDE settings
+.vscode/
+.idea/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+
+# Raw and cleaned datasets
+data/*.csv
+data/*.xlsx
+data/*.xls
+data/*.parquet
+
+# Temporary files
+*.log
+*.tmp
+*.bak
+
+# Local backups
+app_backup.py
+
+# Generated exports
+*_Filtered_Analytics.csv
+*_profitability_report.csv
+discount_what_if_scenarios.csv
+
+# Generated analytical reports
+reports/
+
+# Generated interactive charts
+charts/
