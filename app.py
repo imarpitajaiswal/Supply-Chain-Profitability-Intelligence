@@ -8,8 +8,8 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-st.title("APL Logistics")
-st.subheader("Enterprise Profitability Intelligence")
+st.title("Supply Chain Profitability Intelligence")
+st.subheader("Enterprise Analytics | Synthetic Data Demo")
 
 st.caption(
     "Customer • Product • Market • Financial Analytics"
@@ -26,16 +26,44 @@ from pathlib import Path
 import pandas as pd
 import plotly.express as px
 
+
+# ==================================================
+# PUBLIC DEMO DATA CONFIGURATION
+# ==================================================
+
 BASE_DIR = Path(__file__).resolve().parent
-DATA_FILE = BASE_DIR / "data" / "APL_Logistics_cleaned.csv"
+
+# Public dashboard uses synthetic records only.
+DATA_FILE = BASE_DIR / "demo_data" / "APL_Logistics_demo.csv"
 
 
 @st.cache_data
 def load_data():
+    if not DATA_FILE.exists():
+        st.error(
+            "Synthetic demo dataset not found. "
+            "Run: python generate_demo_data.py"
+        )
+        st.stop()
+
     return pd.read_csv(DATA_FILE)
 
 
 df = load_data()
+
+# Clearly identify the public demo dataset.
+st.info(
+    "SYNTHETIC DATA DEMONSTRATION — "
+    "All customers, products, sales figures, and "
+    "profitability results shown in this dashboard "
+    "are fictional and generated for demonstration. "
+    "They do not represent actual APL Logistics performance."
+)
+
+st.caption(
+    f"Demo dataset: {len(df):,} synthetic line items | "
+    f"{df['Customer Id'].nunique():,} fictional customers"
+)
 
 st.sidebar.title("Analytics Control Center")
 

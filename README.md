@@ -2,6 +2,47 @@
 # Supply Chain Profitability Intelligence
 ### Customer, Product & Discount Performance Analytics
 
+
+> **PUBLIC DEMO NOTICE**
+>
+> This repository includes an interactive Streamlit dashboard powered by
+> synthetic, fictional supply chain data generated for demonstration purposes.
+>
+> The demo dataset does not contain actual customer transactions or
+> confidential business records. All dashboard KPIs, customer profiles,
+> product performance metrics, and profitability figures are illustrative.
+>
+> The original analytical study and the public demonstration are separate.
+> Any original-study statistics documented below should not be interpreted
+> as results produced by the synthetic demo dataset.
+
+## Run the Interactive Dashboard
+
+**Main application:** `app.py`
+
+### Local Setup
+
+```bash
+git clone https://github.com/imarpitajaiswal/Supply-Chain-Profitability-Intelligence.git
+cd Supply-Chain-Profitability-Intelligence
+
+python3 -m venv .venv
+source .venv/bin/activate
+
+pip install -r requirements.txt
+python -m streamlit run app.py
+```
+
+The application reads the included synthetic dataset:
+
+`demo_data/APL_Logistics_demo.csv`
+
+To regenerate it:
+
+```bash
+python generate_demo_data.py
+```
+
 **Python | Pandas | Plotly | Streamlit | Business Intelligence**
 
 An end-to-end supply chain profitability analytics project that transforms operational sales records into actionable customer, product, market, and pricing insights.
